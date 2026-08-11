@@ -1,0 +1,225 @@
+/* =============================================================
+   ZIPPY LOANER — legal / policy pages
+   Loads AFTER css/styles.css and reuses its tokens, nav, buttons,
+   capsules and footer. Only the document shell is defined here.
+   ============================================================= */
+
+/* ---- reading progress: a gilt hairline that tracks scroll ---- */
+.readbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 120;
+  background: transparent;
+  pointer-events: none;
+}
+.readbar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold-ramp);
+  box-shadow: 0 0 12px -2px rgba(201, 162, 39, .9);
+  transition: width .12s linear;
+}
+
+/* ---- page ground ---- */
+.legal {
+  position: relative;
+  background: var(--stage);
+  padding-block: clamp(2.75rem, 6vw, 5rem) clamp(4rem, 9vw, 7rem);
+  overflow: hidden;
+}
+.legal > .grain { z-index: 0; }
+.legal > .shell { position: relative; z-index: 1; max-width: 900px; }
+
+/* ---- masthead ---- */
+.legal__head { margin-bottom: clamp(2rem, 4.5vw, 3.25rem); }
+.legal__head .tag { margin-bottom: 1.3rem; }
+
+.legal h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -.038em;
+  margin-bottom: 1.4rem;
+}
+
+/* effective date sits in a gilt capsule, matching the hero strip */
+.legal__eff {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, #17171B, #0A0A0D) padding-box,
+    var(--gold-ramp) border-box;
+  box-shadow: inset 0 1px 0 rgba(242, 226, 168, .16);
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #E9E9EF;
+}
+.legal__eff::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px -1px rgba(201, 162, 39, .9);
+  flex: none;
+}
+.legal__eff strong { color: #E9E9EF; font-weight: 400; }
+
+/* ---- the document panel ---- */
+.legal__doc {
+  padding: clamp(1.6rem, 3.4vw, 3rem);
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 60% at 0% 0%, rgba(178, 16, 58, .13), transparent 62%) padding-box,
+    linear-gradient(180deg, #0F0F11, #0A0A0C) padding-box,
+    var(--gold-ramp) border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(242, 226, 168, .13),
+    0 30px 70px -40px rgba(0, 0, 0, .95);
+}
+
+.legal h2 {
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: -.022em;
+  line-height: 1.25;
+  color: var(--white);
+  margin: 2.5rem 0 .75rem;
+  padding-top: 1.7rem;
+  position: relative;
+}
+.legal h2::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 38px; height: 2px;
+  border-radius: 2px;
+  background: var(--gold-ramp);
+}
+.legal h2:first-child { margin-top: 0; padding-top: 0; }
+.legal h2:first-child::before { display: none; }
+
+.legal h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  color: var(--white);
+  margin: 1.75rem 0 .45rem;
+}
+
+.legal p,
+.legal li {
+  font-size: .88rem;
+  line-height: 1.85;
+  color: var(--body);
+  margin: 0 0 1em;
+}
+
+.legal ul, .legal ol { padding-left: 1.35rem; margin: 0 0 1.3em; }
+.legal ul { list-style: disc; }
+.legal ol { list-style: decimal; }
+.legal li { margin-bottom: .5em; }
+.legal li::marker { color: var(--gold); }
+
+.legal strong, .legal b { color: var(--white); font-weight: 600; }
+
+.legal a {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.legal a:hover { color: var(--gold); }
+
+/* tables appear in the CCPA / privacy pages */
+.legal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .8rem;
+  margin: 1.3rem 0 1.9rem;
+  display: block;
+  overflow-x: auto;          /* never let a wide table push the page sideways */
+}
+.legal th, .legal td {
+  border: 1px solid var(--hair);
+  padding: .75rem .85rem;
+  text-align: left;
+  vertical-align: top;
+  color: var(--body);
+  line-height: 1.65;
+}
+.legal th {
+  background: linear-gradient(180deg, #1E1E22, #141416);
+  color: var(--white);
+  font-weight: 600;
+  font-size: .74rem;
+  letter-spacing: .03em;
+  border-color: rgba(201, 162, 39, .28);
+}
+
+.legal hr { border: 0; border-top: 1px solid var(--hair); margin: 2.4rem 0; }
+
+/* ---- closing CTA ---- */
+.legal__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--hair);
+}
+.legal__cta p {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin: 0;
+}
+
+/* ---- footer rail on the legal pages ---- */
+.foot__rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.4rem;
+  padding-bottom: clamp(2rem, 4vw, 2.75rem);
+  border-bottom: 1px solid var(--hair-soft);
+}
+.foot__rail a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  font-size: .76rem;
+  color: var(--body);
+  transition: color .18s ease;
+}
+.foot__rail a:hover { color: var(--gold); }
+.foot__rail a[aria-current="page"] {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 4px;
+}
+
+/* With no legal paragraph between them, the rail's bottom border and the bar's
+   top border stack into a doubled hairline. Keep one. */
+.foot__rail + .foot__bar {
+  border-top: 0;
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+@media (max-width: 620px) {
+  .legal__doc { padding: 1.35rem 1.15rem; border-radius: 14px; }
+  .legal table { font-size: .74rem; }
+}

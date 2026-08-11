@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zippy Loaner — One short request. Lenders come to you.</title>
+  <meta name="description" content="Zippy Loaner is a loan connection service, not a lender. Send one short, private request and we forward it to lenders and partners in our network. Free to request, no obligation to accept." />
+  <meta property="og:title" content="Zippy Loaner — Explore your options." />
+  <meta property="og:description" content="One short, private request, forwarded to lenders in our network. You work directly with your matched partner before committing to anything." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Zippy Loaner" />
+  <meta property="og:url" content="https://zippyloaner.com/" />
+  <meta property="og:image" content="https://zippyloaner.com/assets/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://zippyloaner.com/" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#FFFFFF" />
+
+  <!-- the lead form is the money element: start its DNS + TLS handshake now -->
+  <link rel="preconnect" href="https://cdn101.zeroparallel.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn101.zeroparallel.com" />
+  <link rel="icon" type="image/png" sizes="180x180" href="assets/favicon-180.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn101.zeroparallel.com/resource/global/js/params_store.js"></script>
+  <link rel="stylesheet" href="css/styles.light.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================= NAV ============================= -->
+  <header class="nav" id="nav">
+    <div class="shell nav__inner">
+      <a class="brand" href="#top">
+        <span class="brand__chip" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 2 5 14h6l-2 8 10-12h-6z" fill="currentColor"/></svg>
+        </span>
+        <span class="brand__word"><b>Zippy</b>&nbsp;<i>Loaner</i></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#what">What this is</a>
+        <a href="#model">The model</a>
+        <a href="#steps">How it works</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm" href="#top" data-focus-form>Get started</a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMobile" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav__mobile" id="navMobile" hidden>
+      <a href="#what">What this is</a>
+      <a href="#model">The model</a>
+      <a href="#steps">How it works</a>
+      <a href="#disclosures">Disclosures</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================= HERO ============================= -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <div class="shell hero__grid">
+
+        <!-- ---------- Copy ---------- -->
+        <div class="hero__copy">
+          <h1 class="hero__title"><em>Explore</em> your options.</h1>
+          <ul class="hero__meta" aria-label="What to expect">
+            <li>A few questions</li>
+            <li>About 2 minutes</li>
+            <li>Free to request</li>
+          </ul>
+        </div>
+
+        <!-- ---------- Phone / request form ---------- -->
+        <div class="phone" id="request">
+          <div class="phone__shell">
+            <span class="phone__notch" aria-hidden="true"></span>
+
+            <!-- ==================== ZeroParallel lead form ====================
+                 run.php renders the form via document.write, so this script has
+                 to stay INLINE at the spot the form should appear, and must NOT
+                 be given defer or async: running it after parsing would make
+                 document.write blank the whole page. params_store.js loads in
+                 the head so attribution params are captured before this runs.
+                 ================================================================ -->
+            <div class="rf zp">
+              <p class="rf__label">
+                <span>/ Your request</span>
+                <span class="rf__count">Free &amp; no obligation</span>
+              </p>
+
+              <div class="zp__mount">
+                <script src="https://cdn101.zeroparallel.com/form/run.php?p=DA44C05203DE4B40BE2C67FC26D19510"></script>
+                <noscript>
+                  <p class="rf__note">Please enable JavaScript to send your loan request.</p>
+                </noscript>
+              </div>
+
+              <div class="rf__foot">
+                <span class="rf__ssl">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 7V5.4a3.4 3.4 0 016.8 0V7" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="3.1" y="7" width="9.8" height="6.3" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                  256-bit SSL encrypted
+                </span>
+                <a href="#disclosures">Disclosures</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct child of the grid, not of the copy block: that is what lets
+             it sit beside the headline on desktop and fall under the form on
+             mobile from one instance of the markup. -->
+        <ul class="hero__bar" aria-label="What this service is">
+          <li><span class="dot" aria-hidden="true"></span>A loan connection service, not a lender</li>
+          <li><span class="dot" aria-hidden="true"></span>Free to request</li>
+          <li><span class="dot" aria-hidden="true"></span>No obligation to accept</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 01 — WHAT THIS IS / THE MODEL (merged) ============ -->
+    <section class="model" id="what">
+      <div class="shell">
+        <header class="model__head">
+          <p class="tag reveal">/ 01 — what this is</p>
+          <h2 class="what__title reveal">
+            Find people who lend money,<br />
+            <em class="mark">when you need it.</em>
+          </h2>
+          <p class="model__lead reveal" id="model">
+            One short request goes here &amp; offers come back.
+          </p>
+        </header>
+
+        <ol class="flow">
+          <li class="flow__step reveal">
+            <figure class="flow__media">
+              <img src="assets/flow-1.jpg" alt="" width="452" height="425" loading="lazy" />
+            </figure>
+            <p class="tag">/ step one</p>
+            <h3>You</h3>
+            <p>Fill out one short form. <strong>Only a few questions.</strong> About two minutes.</p>
+          </li>
+          <li class="flow__step flow__step--mid reveal">
+            <figure class="flow__media">
+              <img src="assets/flow-2.jpg" alt="" width="452" height="425" loading="lazy" />
+            </figure>
+            <p class="tag">/ step two — what we do</p>
+            <h3><span class="accent">Zippy</span> <em>forwards it.</em></h3>
+            <p>We pass your request to lenders and partners in our network. We don’t decide. We don’t approve. We don’t price. <strong>We connect.</strong></p>
+          </li>
+          <li class="flow__step reveal">
+            <figure class="flow__media">
+              <img src="assets/flow-3.jpg" alt="" width="452" height="425" loading="lazy" />
+            </figure>
+            <p class="tag">/ step three</p>
+            <h3>Lenders</h3>
+            <p>Lenders review and choose to make an offer — or not. They set the <strong>rate, term, and final approval.</strong> You decide if you want it.</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ============================= 03 — TWO MINUTES ============================= -->
+    <section class="stat">
+      <div class="shell stat__wrap">
+        <div class="stat__body">
+          <p class="tag reveal">/ 02 — one number, and it’s honest</p>
+
+          <div class="stat__headline reveal">
+            <p class="stat__big">
+              <span aria-hidden="true">2</span><em>minutes</em>
+              <span class="sr-only">Two minutes</span>
+            </p>
+
+            <p class="stat__lead">
+              The full request takes about as long as scrolling Instagram while the
+              kettle boils.
+            </p>
+          </div>
+        </div>
+
+        <figure class="stat__media reveal">
+          <img src="assets/stat-2min.jpg" alt="" width="1060" height="1325" loading="lazy" />
+        </figure>
+
+        <!-- direct child of the grid so it can sit beside the image on desktop
+             and fall below it on mobile from one instance of the markup -->
+        <p class="stat__fine reveal">
+          The honest part: what happens after the two minutes isn’t on our timeline.
+          Lenders take however long they take — we can’t speed that up. We can only
+          shorten the part where you’d be retyping the same details into many
+          different request sites.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================= 04 — THREE STEPS ============================= -->
+    <section class="steps" id="steps">
+      <div class="shell shell--narrow">
+        <div class="steps__head reveal">
+          <p class="tag">/ 03 — how it works</p>
+          <h2>Start your loan request in 3 simple steps</h2>
+          <p class="steps__sub">
+            Send one secure request, see who responds, and finish directly with the
+            lender you choose.
+          </p>
+        </div>
+
+        <ol class="steps__list">
+          <li class="steps__card reveal">
+            <span class="steps__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 3.5h8.5L19 8v12.5H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3.5V8h5M9 12h7M9 15.5h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <h3>Complete the request form</h3>
+              <p>A few questions about the amount you want and how to reach you. It’s free, and sending it puts you under no obligation.</p>
+            </div>
+            <span class="steps__num" aria-hidden="true">01</span>
+          </li>
+
+          <li class="steps__card reveal">
+            <span class="steps__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.4 15.4 20.5 20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <h3>See who responds</h3>
+              <p>We forward your request to lenders and partners in our network. Any of them may choose to contact you with an offer — or not to.</p>
+            </div>
+            <span class="steps__num" aria-hidden="true">02</span>
+          </li>
+
+          <li class="steps__card reveal">
+            <span class="steps__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 12.8 9.2 18 20 6.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <h3>Work with your lender</h3>
+              <p>Rates, terms, and final approval come from the lender, not from us. Read what they offer, ask questions, and accept only if it works for you.</p>
+            </div>
+            <span class="steps__num" aria-hidden="true">03</span>
+          </li>
+        </ol>
+
+        <p class="steps__foot reveal">
+          <a class="btn btn--primary btn--lg" href="#top" data-focus-form>Start my request</a>
+          <span>Free to request · No obligation to accept · No guarantee of approval</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================= DISCLOSURES ============================= -->
+    <section class="fine" id="disclosures">
+      <div class="shell fine__grid">
+        <p class="tag reveal">/ fine print</p>
+        <div class="fine__body reveal">
+          <p>
+            <strong>The operator of this website</strong> is a for-profit advertising
+            network. We receive compensation, in the form of referral fees, from
+            lenders, aggregators, or other offers that we direct you to. Therefore,
+            the concept of the compensation provided, along with other factors, may
+            impact which offer you are presented. The offer you receive may be coming
+            from the company that bid the most for your information. The operator of
+            this website does not always provide you with an offer with the best rates
+            or terms. Our website does not include all companies or all available
+            offers. We encourage you to review all available loan options for your
+            situation.
+          </p>
+          <p>
+            The operator of this website does not lender loans to lenders and does not
+            make loans or credit decisions. This Website does not constitute an offer
+            or solicitation to lend. This site will submit the information you provide
+            to a lender. In some cases, you may be given the option of obtaining a loan
+            from a trusted lender. Most lenders are subject to state and other federal
+            laws while being immune from state law including usury caps. If you are
+            connected to a tribal lender, please understand that the rates and fees may
+            be higher than state-licensed lenders and you may be required to agree to
+            resolve any disputes in a tribal jurisdiction. Additionally, your
+            information may be going to an aggregator and not a lender. Your
+            information can be and multiple times from multiple offers from lenders,
+            aggregators, and other marketers. Providing your information on this
+            Website does not guarantee that you will be approved for a loan.
+          </p>
+          <p>
+            The operator of this Website is not an agent, representative, or broker of
+            any lender and does not endorse or charge you for any service or product.
+            Not all lenders can provide up to $25,000. Money transfer times may vary
+            between lenders and may depend on your individual financial institution. In
+            some circumstances faxing may be required. This service is not available in
+            all states, and the states serviced by this Website may change from time to
+            time and without notice. For initial questions or concerns regarding your
+            loan, please contact your lender directly. Loans are meant to provide you
+            with short-term financing to solve immediate money needs and should not be
+            considered a long-term solution. Residents of some states may not be
+            eligible for a loan based upon lender requirements.
+          </p>
+          <p>
+            <strong>Credit may perform credit checks with the three credit reporting
+            bureaus Experian, Equifax, or TransUnion.</strong> Credit checks or consumer
+            reports through alternative providers may be obtained by some lenders.
+          </p>
+          <p>
+            <strong>Anti-spam policy:</strong> We strictly prohibit any inference or
+            advertisement of our brand and web site using unsolicited email messages.
+            Violation of this policy will cause partnership termination and further
+            actions permitted by the law. If you feel you have been sent unsolicited
+            messages promoting our brand or website and would like to register a
+            complaint, please write to our Privacy Policy. We will investigate all
+            complaints and take necessary action.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= YOUR DATA ============================= -->
+    <section class="rights">
+      <div class="shell rights__grid">
+        <a class="rights__card reveal" href="Unsubscribe.html">
+          <p class="tag"><span class="dot" aria-hidden="true"></span>Email opt-out</p>
+          <h3>Unsubscribe</h3>
+          <p class="rights__copy">Stop receiving marketing emails from Zippy Loaner.</p>
+          <span class="rights__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="rights__card reveal" href="DoNotSell.html">
+          <p class="tag"><span class="dot" aria-hidden="true"></span>CCPA — data removal</p>
+          <h3>Do not sell my personal information</h3>
+          <p class="rights__copy">Request removal of the information you provided.</p>
+          <span class="rights__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="foot">
+    <div class="shell">
+      <div class="foot__grid">
+        <div class="foot__brand">
+          <a class="brand brand--foot" href="#top">
+            <span class="brand__chip" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 2 5 14h6l-2 8 10-12h-6z" fill="currentColor"/></svg>
+            </span>
+            <span class="brand__word"><b>Zippy</b>&nbsp;<i>Loaner</i></span>
+          </a>
+          <p>
+            A personal loan connection service. We forward your request to third-party
+            lenders and partners. We are not a lender and do not make credit decisions.
+          </p>
+        </div>
+
+        <nav class="foot__col" aria-labelledby="fc-company">
+          <h4 id="fc-company">Company</h4>
+          <a href="HowItWorks.html">How it works</a>
+          <a href="RatesAndFees.html">Rates &amp; fees</a>
+          <a href="LendingPolicy.html">Lending policy</a>
+          <a href="Questions.html">Questions</a>
+          <a href="Contact.html">Contact</a>
+        </nav>
+
+        <nav class="foot__col" aria-labelledby="fc-legal">
+          <h4 id="fc-legal">Legal</h4>
+          <a href="PrivacyPolicy.html">Privacy Policy</a>
+          <a href="TermsOfUse.html">Terms &amp; Conditions</a>
+          <a href="EConsent.html">E-Consent</a>
+          <a href="CreditAuthorization.html">Credit Authorization</a>
+          <a href="AdvertisingDisclosure.html">Advertising Disclosure</a>
+          <a href="Disclaimer.html">Disclaimer</a>
+        </nav>
+
+        <nav class="foot__col" aria-labelledby="fc-data">
+          <h4 id="fc-data">Your data</h4>
+          <a href="Unsubscribe.html">Unsubscribe from email</a>
+          <a href="DoNotSell.html">Do not sell my personal information</a>
+          <a href="CaliforniaPrivacyNotice.html">California Privacy Notice</a>
+        </nav>
+      </div>
+
+      <div class="foot__bar">
+        <p>© 2026 Zippy Loaner. All rights reserved.</p>
+        <!-- TODO: replace with the real CAN-SPAM postal address before launch -->
+        <p class="foot__addr">Mailing address to be added</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zippy Loaner",
+    "url": "https://zippyloaner.com/",
+    "logo": "https://zippyloaner.com/assets/logo-mark.png",
+    "description": "Zippy Loaner is a loan connection service, not a lender. It forwards one short request to lenders and partners in its network, who decide independently whether to make an offer.",
+    "disambiguatingDescription": "Not a lender. Does not make credit decisions and does not set rates or terms."
+  }
+  </script>
+</body>
+</html>
