@@ -1241,14 +1241,21 @@ button { cursor: pointer; background: none; border: 0; }
 .hero__bg {
   position: absolute; inset: 0; z-index: 0;
   background-image: url("../assets/hero-bg-light.jpg");
-  background-size: cover; background-position: 62% center; background-repeat: no-repeat;
-  opacity: .5;
+  background-size: cover;
+  background-position: 50% 32%;
+  background-repeat: no-repeat;
+  opacity: .85;
 }
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, #FFF 0%, rgba(255,255,255,.9) 38%, rgba(255,255,255,.7) 72%, rgba(255,255,255,.85) 100%),
-    linear-gradient(180deg, rgba(255,255,255,.7) 0%, rgba(255,255,255,.35) 42%, #FFF 100%);
+    linear-gradient(90deg,
+      rgba(255,255,255,.22) 0%, rgba(255,255,255,.12) 38%,
+      rgba(255,255,255,.30) 56%, rgba(255,255,255,.34) 80%,
+      rgba(255,255,255,.28) 100%),
+    linear-gradient(180deg,
+      rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 26%,
+      rgba(255,255,255,.12) 62%, #FFFFFF 100%);
 }
 .hero__grid {
   grid-template-rows: auto auto;
@@ -1261,7 +1268,7 @@ button { cursor: pointer; background: none; border: 0; }
 .hero__grid .hero__bar  { grid-column: 2; grid-row: 2; align-self: start; }
 
 @media (max-width: 900px) {
-  .hero__bg { opacity: .12; background-position: 50% 22%; }
+  .hero__bg { opacity: .6; background-position: 70% 28%; }
   .hero__grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
   .hero__grid .hero__copy,
   .hero__grid .phone,
@@ -1733,4 +1740,20 @@ a, button, .rf__opts label, .steps__card, .rights__card {
   .rights__card { padding-right: 6.5rem; }
   .rights__arrow::before { width: 30px; }
   .rights__card:hover .rights__arrow::before { width: 46px; }
+}
+/* the expectation rail becomes frosted glass so the art can run rich behind
+   it - small grey mono never has to fight the key or the silk */
+.hero__meta {
+  width: fit-content;
+  max-width: 100%;
+  padding: .55rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .58);
+  backdrop-filter: blur(10px) saturate(1.3);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, .8);
+  box-shadow: 0 10px 30px -22px rgba(109, 0, 26, .45);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .hero__meta { background: rgba(255, 255, 255, .88); }
 }
