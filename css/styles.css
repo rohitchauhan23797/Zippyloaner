@@ -1242,7 +1242,7 @@ button { cursor: pointer; background: none; border: 0; }
   position: absolute; inset: 0; z-index: 0;
   background-image: url("../assets/hero-bg-light.jpg");
   background-size: cover;
-  background-position: 50% 32%;
+  background-position: 50% 44%;
   background-repeat: no-repeat;
   opacity: .85;
 }
@@ -1255,7 +1255,7 @@ button { cursor: pointer; background: none; border: 0; }
       rgba(255,255,255,.28) 100%),
     linear-gradient(180deg,
       rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 26%,
-      rgba(255,255,255,.12) 62%, #FFFFFF 100%);
+      rgba(255,255,255,.10) 72%, rgba(255,255,255,.55) 92%, #FFFFFF 100%);
 }
 .hero__grid {
   grid-template-rows: auto auto;
@@ -1571,7 +1571,6 @@ a, button, .rf__opts label, .steps__card, .rights__card {
 .brand__logo {
   height: clamp(44px, 1.6rem + 3.2vw, 92px);
   width: auto;
-  mix-blend-mode: multiply;
 }
 .brand--foot .brand__logo { height: clamp(60px, 2.2rem + 4.4vw, 124px); }
 
@@ -1756,4 +1755,19 @@ a, button, .rf__opts label, .steps__card, .rights__card {
 }
 @supports not (backdrop-filter: blur(1px)) {
   .hero__meta { background: rgba(255, 255, 255, .88); }
+}
+/* =============================================================
+   HERO STAGE HEIGHT (laptop+)
+   The art is 4:3 and the key runs top-to-bottom of it; a short
+   content-height hero sliced the key to a sliver. Give the stage
+   real height on laptops and centre the grid in it, so the whole
+   key head and most of the shaft stay in frame.
+   ============================================================= */
+@media (min-width: 901px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: min(86vh, 780px);
+  }
+  .hero > .shell { width: 100%; }
 }
