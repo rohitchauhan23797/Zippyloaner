@@ -1704,31 +1704,45 @@ a, button, .rf__opts label, .steps__card, .rights__card {
 .rights__card:hover .tag { color: #E4CF86; }
 .rights__card:hover .dot { background: #E4CF86; }
 
-/* drawn arrow: a tail that reaches left of the head and grows on hover */
+/* Drawn arrow - no font glyph. The -> character's shaft sits wherever the
+   font's metrics put it, so a drawn tail can never line up with it. Tail and
+   chevron head are both CSS strokes on the same centreline instead: they
+   cannot misalign, and the whole arrow grows leftward on hover because the
+   span is right-anchored. */
 .rights__arrow {
   position: absolute;
   top: 50%;
   right: clamp(1.4rem, 2vw, 1.8rem);
   transform: translateY(-50%);
   z-index: 1;
-  display: inline-flex;
-  align-items: center;
+  width: clamp(46px, 6vw, 84px);
+  height: 14px;
+  font-size: 0;              /* silence the glyph in the markup */
   color: var(--gold-ink);
-  transition: color .35s var(--ease);
+  transition: width .45s var(--ease), color .35s var(--ease);
 }
 .rights__arrow::before {
   content: "";
-  width: clamp(36px, 5vw, 72px);
-  height: 1px;
+  position: absolute;
+  left: 0; right: 1px; top: 50%;
+  height: 1.5px;
+  border-radius: 1px;
   background: currentColor;
-  margin-right: -11px;   /* tuck the tail under the glyph's own shaft */
-  transition: width .45s var(--ease);
+  transform: translateY(-50%);
+}
+.rights__arrow::after {
+  content: "";
+  position: absolute;
+  right: 1px; top: 50%;
+  width: 9px; height: 9px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
 }
 .rights__card:hover .rights__arrow {
   color: #E4CF86;
-  transform: translateY(-50%);   /* keep centred - cancel the old translateX */
+  width: clamp(72px, 9vw, 122px);
 }
-.rights__card:hover .rights__arrow::before { width: clamp(60px, 8vw, 110px); }
 
 @media (prefers-reduced-motion: reduce) {
   .rights__card::after, .rights__arrow::before { transition: none; }
@@ -1737,8 +1751,8 @@ a, button, .rf__opts label, .steps__card, .rights__card {
 .rights__card { padding-right: clamp(8rem, 13vw, 11.5rem); }
 @media (max-width: 620px) {
   .rights__card { padding-right: 6.5rem; }
-  .rights__arrow::before { width: 30px; }
-  .rights__card:hover .rights__arrow::before { width: 46px; }
+  .rights__arrow { width: 34px; }
+  .rights__card:hover .rights__arrow { width: 52px; }
 }
 /* the expectation rail becomes frosted glass so the art can run rich behind
    it - small grey mono never has to fight the key or the silk */
