@@ -152,29 +152,6 @@ button { cursor: pointer; background: none; border: 0; }
   gap: .6rem;
   min-height: 44px;   /* tap target */
 }
-.brand__chip {
-  width: 26px; height: 26px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(150deg, var(--burg-lift), var(--burgundy) 55%, var(--burg-deep)) padding-box,
-    var(--gold-ramp) border-box;
-  color: var(--white);
-  display: grid;
-  place-items: center;
-  flex: none;
-  box-shadow: inset 0 1px 0 rgba(228,207,134,.34), 0 2px 8px -3px rgba(109,0,26,.65);
-}
-.brand__chip svg { width: 15px; height: 15px; }
-
-/* black ZIPPY + polished-garnet LOANER, always on a light ground */
-.brand__word {
-  font-weight: 600;
-  font-size: .95rem;
-  letter-spacing: -.01em;
-}
-.brand__word b { font-weight: 700; color: var(--ink); }
-.brand__word i { font-style: normal; font-weight: 600; color: var(--burgundy); }
 
 /* ---------------------------------------------- buttons */
 .btn {
@@ -1224,18 +1201,6 @@ button { cursor: pointer; background: none; border: 0; }
 /* ---- lockup scaled to match the dark build's fluid logo ---- */
 .nav__inner { min-height: clamp(66px, 2.6rem + 3.6vw, 120px); }
 .brand { gap: clamp(.55rem, .4rem + .35vw, .85rem); }
-.brand__chip {
-  width:  clamp(30px, 1rem + 1.5vw, 46px);
-  height: clamp(30px, 1rem + 1.5vw, 46px);
-  border-radius: clamp(9px, .4rem + .4vw, 14px);
-}
-.brand__chip svg { width: 56%; height: 56%; }
-.brand__word { font-size: clamp(1.05rem, .78rem + .95vw, 1.62rem); }
-.foot__brand .brand__chip {
-  width:  clamp(36px, 1.2rem + 2vw, 56px);
-  height: clamp(36px, 1.2rem + 2vw, 56px);
-}
-.foot__brand .brand__word { font-size: clamp(1.2rem, .9rem + 1.2vw, 1.95rem); }
 /* ---- hero bg + capsule placement (light build mirror) ---- */
 .hero > .shell { position: relative; z-index: 2; }
 .hero__bg {
@@ -1308,7 +1273,6 @@ a, button, .rf__opts label, .steps__card, .rights__card {
    place rather than text sliding up. */
 .js .reveal { transform: translateY(18px) scale(.995); }
 .js .reveal.is-in { transform: none; }
-
 
 /* Anchored sections clear the sticky bar when jumped to */
 [id] { scroll-margin-top: clamp(78px, 9vw, 128px); }
