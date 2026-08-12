@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://zippyloaner.com/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#FFFFFF" />
 
   <!-- the lead form is the money element: start its DNS + TLS handshake now -->
   <link rel="preconnect" href="https://cdn101.zeroparallel.com" crossorigin />
@@ -37,8 +37,10 @@
   <header class="nav" id="nav">
     <div class="shell nav__inner">
       <a class="brand" href="#top">
-        <img class="brand__logo" src="assets/logo-lockup.png" alt="Zippy Loaner — home"
-             width="560" height="156" fetchpriority="high" />
+        <span class="brand__chip" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 2 5 14h6l-2 8 10-12h-6z" fill="currentColor"/></svg>
+        </span>
+        <span class="brand__word"><b>Zippy</b>&nbsp;<i>Loaner</i></span>
       </a>
 
       <nav class="nav__links" aria-label="Primary">
@@ -349,8 +351,10 @@
       <div class="foot__grid">
         <div class="foot__brand">
           <a class="brand brand--foot" href="#top">
-            <img class="brand__logo" src="assets/logo-lockup.png" alt="Zippy Loaner — home"
-                 width="560" height="156" loading="lazy" />
+            <span class="brand__chip" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 2 5 14h6l-2 8 10-12h-6z" fill="currentColor"/></svg>
+            </span>
+            <span class="brand__word"><b>Zippy</b>&nbsp;<i>Loaner</i></span>
           </a>
           <p>
             A personal loan connection service. We forward your request to third-party

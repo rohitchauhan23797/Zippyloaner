@@ -1,7 +1,9 @@
 /* =============================================================
-   ZIPPY LOANER — legal / policy pages
+   ZIPPY LOANER — legal / policy pages  ·  CAESAR (light)
    Loads AFTER css/styles.css and reuses its tokens, nav, buttons,
    capsules and footer. Only the document shell is defined here.
+   Gold on paper always runs the antique end (--gold-ink / the
+   paper ramp) — bright #C9A227 is 2.4:1 on white and disappears.
    ============================================================= */
 
 /* ---- reading progress: a gilt hairline that tracks scroll ---- */
@@ -17,15 +19,15 @@
   display: block;
   height: 100%;
   width: 0;
-  background: var(--gold-ramp);
-  box-shadow: 0 0 12px -2px rgba(201, 162, 39, .9);
+  background: var(--gold-ramp-paper);
+  box-shadow: 0 0 10px -2px rgba(122, 94, 18, .55);
   transition: width .12s linear;
 }
 
 /* ---- page ground ---- */
 .legal {
   position: relative;
-  background: var(--stage);
+  background: var(--paper);
   padding-block: clamp(2.75rem, 6vw, 5rem) clamp(4rem, 9vw, 7rem);
   overflow: hidden;
 }
@@ -41,6 +43,7 @@
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -.038em;
+  color: var(--ink);
   margin-bottom: 1.4rem;
 }
 
@@ -53,24 +56,23 @@
   border: 1px solid transparent;
   border-radius: 999px;
   background:
-    linear-gradient(180deg, #17171B, #0A0A0D) padding-box,
-    var(--gold-ramp) border-box;
-  box-shadow: inset 0 1px 0 rgba(242, 226, 168, .16);
+    linear-gradient(180deg, #FFFFFF, #F6F4F4) padding-box,
+    var(--gold-ramp-paper) border-box;
+  box-shadow: 0 8px 20px -16px rgba(109, 0, 26, .55);
   font-family: var(--mono);
   font-size: .66rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #E9E9EF;
+  color: #2A2A2A;
 }
 .legal__eff::before {
   content: "";
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px -1px rgba(201, 162, 39, .9);
+  background: var(--gold-ink);
   flex: none;
 }
-.legal__eff strong { color: #E9E9EF; font-weight: 400; }
+.legal__eff strong { color: #2A2A2A; font-weight: 500; }
 
 /* ---- the document panel ---- */
 .legal__doc {
@@ -78,12 +80,12 @@
   border: 1px solid transparent;
   border-radius: 18px;
   background:
-    radial-gradient(120% 60% at 0% 0%, rgba(178, 16, 58, .13), transparent 62%) padding-box,
-    linear-gradient(180deg, #0F0F11, #0A0A0C) padding-box,
-    var(--gold-ramp) border-box;
+    radial-gradient(120% 60% at 0% 0%, rgba(109, 0, 26, .045), transparent 62%) padding-box,
+    linear-gradient(180deg, #FFFFFF, #FDFCFB) padding-box,
+    var(--gold-ramp-paper) border-box;
   box-shadow:
-    inset 0 1px 0 rgba(242, 226, 168, .13),
-    0 30px 70px -40px rgba(0, 0, 0, .95);
+    0 1px 2px rgba(0, 0, 0, .03),
+    0 30px 70px -46px rgba(109, 0, 26, .5);
 }
 
 .legal h2 {
@@ -91,7 +93,7 @@
   font-weight: 700;
   letter-spacing: -.022em;
   line-height: 1.25;
-  color: var(--white);
+  color: var(--ink);
   margin: 2.5rem 0 .75rem;
   padding-top: 1.7rem;
   position: relative;
@@ -102,7 +104,7 @@
   top: 0; left: 0;
   width: 38px; height: 2px;
   border-radius: 2px;
-  background: var(--gold-ramp);
+  background: var(--gold-ramp-paper);
 }
 .legal h2:first-child { margin-top: 0; padding-top: 0; }
 .legal h2:first-child::before { display: none; }
@@ -111,14 +113,14 @@
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -.015em;
-  color: var(--white);
-  margin: 1.75rem 0 .45rem;
+  color: var(--ink);
+  margin: 1.7rem 0 .45rem;
 }
 
 .legal p,
 .legal li {
-  font-size: .88rem;
-  line-height: 1.85;
+  font-size: .87rem;
+  line-height: 1.82;
   color: var(--body);
   margin: 0 0 1em;
 }
@@ -127,47 +129,51 @@
 .legal ul { list-style: disc; }
 .legal ol { list-style: decimal; }
 .legal li { margin-bottom: .5em; }
-.legal li::marker { color: var(--gold); }
+.legal li::marker { color: var(--gold-ink); }
 
-.legal strong, .legal b { color: var(--white); font-weight: 600; }
+.legal strong, .legal b { color: var(--ink); font-weight: 600; }
 
 .legal a {
-  color: var(--white);
+  color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: var(--gold);
+  text-decoration-color: var(--gold-ink);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
   transition: color .18s ease, text-decoration-color .18s ease;
 }
-.legal a:hover { color: var(--gold); }
+.legal a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy); }
 
 /* tables appear in the CCPA / privacy pages */
 .legal table {
   width: 100%;
   border-collapse: collapse;
   font-size: .8rem;
-  margin: 1.3rem 0 1.9rem;
+  margin: 1.2rem 0 1.8rem;
   display: block;
   overflow-x: auto;          /* never let a wide table push the page sideways */
 }
 .legal th, .legal td {
   border: 1px solid var(--hair);
-  padding: .75rem .85rem;
+  padding: .7rem .8rem;
   text-align: left;
   vertical-align: top;
   color: var(--body);
   line-height: 1.65;
 }
 .legal th {
-  background: linear-gradient(180deg, #1E1E22, #141416);
-  color: var(--white);
+  background: linear-gradient(180deg, #F6F4F4, #EFEDEC);
+  color: var(--ink);
   font-weight: 600;
   font-size: .74rem;
-  letter-spacing: .03em;
-  border-color: rgba(201, 162, 39, .28);
+  letter-spacing: .02em;
+  border-color: rgba(122, 94, 18, .3);
 }
 
-.legal hr { border: 0; border-top: 1px solid var(--hair); margin: 2.4rem 0; }
+.legal hr {
+  border: 0;
+  border-top: 1px solid var(--hair);
+  margin: 2.4rem 0;
+}
 
 /* ---- closing CTA ---- */
 .legal__cta {
@@ -204,11 +210,11 @@
   color: var(--body);
   transition: color .18s ease;
 }
-.foot__rail a:hover { color: var(--gold); }
+.foot__rail a:hover { color: var(--burgundy); }
 .foot__rail a[aria-current="page"] {
-  color: var(--white);
+  color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: var(--gold);
+  text-decoration-color: var(--gold-ink);
   text-underline-offset: 4px;
 }
 
