@@ -133,7 +133,7 @@
 
 .legal strong, .legal b { color: var(--ink); font-weight: 600; }
 
-.legal a {
+.legal a:not(.btn) {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-color: var(--gold-ink);
@@ -141,7 +141,7 @@
   text-decoration-thickness: 1px;
   transition: color .18s ease, text-decoration-color .18s ease;
 }
-.legal a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy); }
+.legal a:not(.btn):hover { color: var(--burgundy); text-decoration-color: var(--burgundy); }
 
 /* tables appear in the CCPA / privacy pages */
 .legal table {

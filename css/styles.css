@@ -1240,9 +1240,9 @@ button { cursor: pointer; background: none; border: 0; }
 .hero > .shell { position: relative; z-index: 2; }
 .hero__bg {
   position: absolute; inset: 0; z-index: 0;
-  background-image: url("../assets/hero-bg.jpg");
+  background-image: url("../assets/hero-bg-light.jpg");
   background-size: cover; background-position: 62% center; background-repeat: no-repeat;
-  opacity: .16;
+  opacity: .5;
 }
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
@@ -1611,4 +1611,53 @@ a, button, .rf__opts label, .steps__card, .rights__card {
 
 @media (prefers-reduced-motion: reduce) {
   .steps__card::after { transition: none; }
+}
+/* =============================================================
+   STEP NUMERALS - large serif folios
+   The 01/02/03 go from small mono footnotes to Fraunces italic
+   folios in antique gold, sitting quietly until the card is
+   touched - then they bloom champagne and swell with the flood.
+   ============================================================= */
+.steps__card { padding-right: clamp(5.5rem, 9vw, 7.5rem); }
+.steps__num {
+  position: absolute;
+  z-index: 1;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: 0;
+  top: 50%;
+  right: clamp(1.2rem, 2.5vw, 2rem);
+  transform: translateY(-50%);
+  color: var(--gold-ink);
+  opacity: .34;
+  transition:
+    transform .45s var(--ease),
+    opacity .45s var(--ease),
+    color .45s var(--ease);
+}
+.steps__card:hover .steps__num,
+.steps__card:active .steps__num {
+  color: #E4CF86;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.14);
+}
+
+@media (max-width: 620px) {
+  .steps__card { padding-right: 1.4rem; padding-bottom: 3.4rem; }
+  .steps__num {
+    font-size: 2.1rem;
+    top: auto; bottom: 1rem; right: 1.25rem;
+    transform: none;
+  }
+  .steps__card:hover .steps__num,
+  .steps__card:active .steps__num { transform: scale(1.1); }
+}
+
+/* the nav CTA duplicates the hero form one screen away - on phones it just
+   crowds the bar, so the lockup and menu get the space instead */
+@media (max-width: 620px) {
+  .nav__actions .btn--primary { display: none; }
 }
