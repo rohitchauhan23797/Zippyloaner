@@ -1562,11 +1562,11 @@ a, button, .rf__opts label, .steps__card, .rights__card {
    nav and only the artwork + its soft shadow survive.
    ============================================================= */
 .brand__logo {
-  height: clamp(40px, 1.5rem + 3vw, 84px);
+  height: clamp(44px, 1.6rem + 3.2vw, 92px);
   width: auto;
   mix-blend-mode: multiply;
 }
-.brand--foot .brand__logo { height: clamp(54px, 2rem + 4vw, 112px); }
+.brand--foot .brand__logo { height: clamp(60px, 2.2rem + 4.4vw, 124px); }
 
 @media (prefers-reduced-transparency: reduce) {
   .brand__logo { mix-blend-mode: normal; }
@@ -1660,4 +1660,77 @@ a, button, .rf__opts label, .steps__card, .rights__card {
    crowds the bar, so the lockup and menu get the space instead */
 @media (max-width: 620px) {
   .nav__actions .btn--primary { display: none; }
+}
+/* =============================================================
+   OPT-OUT CARDS - garnet flood + drawn arrow
+   Same overlay treatment as the step cards, so the two data-rights
+   cards answer the rest of the page. The arrow becomes a drawn
+   line-and-head that reaches left toward the words, and the tail
+   grows on hover so the whole card reads as pointing somewhere.
+   ============================================================= */
+.rights__card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--rad) - 1px);
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(178, 16, 58, .5), transparent 62%),
+    linear-gradient(165deg, #7E0020 0%, #4A0016 55%, #38000F 100%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  pointer-events: none;
+}
+.rights__card > * { position: relative; z-index: 1; }
+.rights__card h3,
+.rights__card .rights__copy,
+.rights__card .tag { transition: color .35s var(--ease); }
+.rights__card .dot { transition: background-color .35s var(--ease); }
+
+.rights__card:hover::after { opacity: 1; }
+.rights__card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 26px 52px -26px rgba(109, 0, 26, .75),
+    0 0 28px -10px rgba(168, 135, 30, .6);
+}
+.rights__card:hover h3 { color: #FFFFFF; }
+.rights__card:hover .rights__copy { color: rgba(255, 255, 255, .88); }
+.rights__card:hover .tag { color: #E4CF86; }
+.rights__card:hover .dot { background: #E4CF86; }
+
+/* drawn arrow: a tail that reaches left of the head and grows on hover */
+.rights__arrow {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.4rem, 2vw, 1.8rem);
+  transform: translateY(-50%);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold-ink);
+  transition: color .35s var(--ease);
+}
+.rights__arrow::before {
+  content: "";
+  width: clamp(36px, 5vw, 72px);
+  height: 1px;
+  background: currentColor;
+  margin-right: -11px;   /* tuck the tail under the glyph's own shaft */
+  transition: width .45s var(--ease);
+}
+.rights__card:hover .rights__arrow {
+  color: #E4CF86;
+  transform: translateY(-50%);   /* keep centred - cancel the old translateX */
+}
+.rights__card:hover .rights__arrow::before { width: clamp(60px, 8vw, 110px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rights__card::after, .rights__arrow::before { transition: none; }
+}
+/* room for the grown tail so it never runs into the headline */
+.rights__card { padding-right: clamp(8rem, 13vw, 11.5rem); }
+@media (max-width: 620px) {
+  .rights__card { padding-right: 6.5rem; }
+  .rights__arrow::before { width: 30px; }
+  .rights__card:hover .rights__arrow::before { width: 46px; }
 }
