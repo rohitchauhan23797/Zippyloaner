@@ -1554,3 +1554,61 @@ a, button, .rf__opts label, .steps__card, .rights__card {
 /* block stack for the stat headline - flex wrap was width-dependent (see dark) */
 .stat__headline { display: block; }
 .stat__lead { flex: none; margin-top: clamp(.75rem, 1.6vw, 1.4rem); }
+/* =============================================================
+   RASTER LOCKUP (light plate)
+   The light logo is rendered art on a near-white plate (253-254).
+   `multiply` is the mirror of the dark build's `screen` trick:
+   white is its identity, so the plate drops out against the paper
+   nav and only the artwork + its soft shadow survive.
+   ============================================================= */
+.brand__logo {
+  height: clamp(40px, 1.5rem + 3vw, 84px);
+  width: auto;
+  mix-blend-mode: multiply;
+}
+.brand--foot .brand__logo { height: clamp(54px, 2rem + 4vw, 112px); }
+
+@media (prefers-reduced-transparency: reduce) {
+  .brand__logo { mix-blend-mode: normal; }
+}
+@media (max-width: 380px) {
+  .brand__logo { height: 34px; }
+}
+
+/* =============================================================
+   STEP CARDS - garnet flood on hover
+   The gradient itself cannot interpolate, so the garnet lives on
+   an ::after overlay that fades in. inset:1px keeps the gilt
+   border visible around the flooded face.
+   ============================================================= */
+.steps__card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--rad) - 1px);
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(178, 16, 58, .5), transparent 62%),
+    linear-gradient(165deg, #7E0020 0%, #4A0016 55%, #38000F 100%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  pointer-events: none;
+}
+.steps__card > * { position: relative; z-index: 1; }
+.steps__card h3,
+.steps__card p,
+.steps__card .steps__num { transition: color .35s var(--ease); }
+
+.steps__card:hover::after { opacity: 1; }
+.steps__card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 26px 52px -26px rgba(109, 0, 26, .75),
+    0 0 28px -10px rgba(168, 135, 30, .6);
+}
+.steps__card:hover h3 { color: #FFFFFF; }
+.steps__card:hover p { color: rgba(255, 255, 255, .88); }
+.steps__card:hover .steps__num { color: #E4CF86; }
+
+@media (prefers-reduced-motion: reduce) {
+  .steps__card::after { transition: none; }
+}
